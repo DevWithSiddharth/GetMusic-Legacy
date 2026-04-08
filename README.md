@@ -24,7 +24,7 @@ Welcome to **GetMusic**, a sleek, dark-themed music streaming website that lets 
 
   ### 1. Clone the repository  
    ```bash
-   git clone https://github.com/CyberlordSY/GetMusic-Legacy.git
+   git clone https://github.com/DevWithSiddharth/GetMusic-Legacy.git
    cd GetMusic-Legacy
   ```
    ### 2. Start Localhost Server
