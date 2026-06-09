@@ -79,7 +79,7 @@ After saving the configuration changes, deploy the project by following these st
 ```
 http://localhost/GetMusic-Legacy
 ```
-The website should now be live on your local server.
+The website should now be live on your local server
 
 
 
