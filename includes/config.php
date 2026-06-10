@@ -8,8 +8,8 @@
 
 	$server = "localhost";
 	$username = "root";
-	$password = "CyberLordSY";
-	$db = "getmusic";
+	$password = "";
+	$db = "GetMusic-Legacy";
 
 	$con = new mysqli($server, $username, $password, $db);
 	$con = mysqli_connect($server, $username, $password, $db);

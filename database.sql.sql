@@ -1,11 +1,11 @@
---   phpMyAdmin SQL Dump
--- version 5.2.0
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: fdb32.awardspace.net
--- Generation Time: May 14, 2023 at 11:54 AM
--- Server version: 5.7.40-log
--- PHP Version: 8.1.19
+-- Host: 127.0.0.1
+-- Generation Time: Jun 10, 2026 at 01:25 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `3969136_gautam`
+-- Database: `GetMusic-Legacy`
 --
-CREATE DATABASE IF NOT EXISTS `3969136_gautam` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `3969136_gautam`;
+CREATE DATABASE IF NOT EXISTS `GetMusic-Legacy` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `GetMusic-Legacy`;
 
 -- --------------------------------------------------------
 
@@ -33,14 +33,14 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` text NOT NULL,
   `password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'siddharth yadav', '$2y$10$5YXmPEXAEoMWgftjqd/CM.aGonF2Vo7fom6Koq.98aVzI3VplhZSa');
+(1, 'Admin', '$2a$12$xnW1NsmFB/CuEAfsHHD5rePqBibWwd39RrkAAUuWw4V4VdjY76tGW');
 
 -- --------------------------------------------------------
 
@@ -54,7 +54,7 @@ CREATE TABLE `albums` (
   `artist` int(11) NOT NULL,
   `genre` int(11) NOT NULL,
   `artworkPath` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `albums`
@@ -97,7 +97,7 @@ INSERT INTO `albums` (`id`, `title`, `artist`, `genre`, `artworkPath`) VALUES
 CREATE TABLE `artists` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `artists`
@@ -211,7 +211,7 @@ INSERT INTO `artists` (`id`, `name`) VALUES
 CREATE TABLE `genres` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `genres`
@@ -243,16 +243,7 @@ CREATE TABLE `playlists` (
   `name` varchar(50) NOT NULL,
   `owner` varchar(50) NOT NULL,
   `dateCreated` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `playlists`
---
-
-INSERT INTO `playlists` (`id`, `name`, `owner`, `dateCreated`) VALUES
-(2, 'my', 'praveen', '2021-11-18 00:00:00'),
-(6, 'Gautam', 'gautamdis3433', '2021-11-19 00:00:00'),
-(8, 'romantic', 'praveen', '2022-01-29 00:00:00');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -265,43 +256,7 @@ CREATE TABLE `playlistsongs` (
   `songId` int(11) NOT NULL,
   `playlistId` int(11) NOT NULL,
   `playlistOrder` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `playlistsongs`
---
-
-INSERT INTO `playlistsongs` (`id`, `songId`, `playlistId`, `playlistOrder`) VALUES
-(2, 68, 2, 1),
-(6, 29, 2, 5),
-(7, 73, 2, 6),
-(8, 77, 2, 7),
-(9, 61, 2, 8),
-(10, 34, 2, 9),
-(11, 45, 2, 10),
-(12, 1, 2, 11),
-(14, 50, 2, 13),
-(15, 55, 2, 14),
-(16, 58, 2, 15),
-(18, 50, 6, 1),
-(19, 54, 6, 2),
-(20, 57, 6, 3),
-(21, 58, 6, 4),
-(22, 28, 6, 5),
-(23, 29, 6, 6),
-(24, 1, 6, 7),
-(25, 61, 6, 8),
-(26, 68, 6, 9),
-(29, 93, 6, 10),
-(30, 95, 6, 11),
-(31, 89, 8, 1),
-(32, 64, 8, 2),
-(33, 65, 8, 3),
-(34, 66, 8, 4),
-(35, 67, 8, 5),
-(36, 72, 8, 6),
-(37, 71, 8, 7),
-(38, 92, 8, 8);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -319,7 +274,7 @@ CREATE TABLE `songs` (
   `path` varchar(500) NOT NULL,
   `albumOrder` int(11) NOT NULL,
   `plays` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `songs`
@@ -358,8 +313,8 @@ INSERT INTO `songs` (`id`, `title`, `artist`, `album`, `genre`, `duration`, `pat
 (30, ' Mohabbat Ki Nahin Jaati', 11, 3, 3, '5:51', 'assets/music/Mohabbat Ki Nahin Jaati.mp3', 3, 19),
 (31, 'Saaton Janam Tum', 32, 3, 3, '5:21', 'assets/music/Saaton Janam Tum.mp3', 4, 14),
 (32, 'Sona Kitna Sona Hai', 33, 3, 3, '4:53', 'assets/music/Sona Kitna Sona Hai.mp3', 5, 11),
-(33, 'Soneya Ve', 35, 7, 8, '2:36', 'assets/music/Soneya Ve.mp3', 2, 10),
-(34, 'One Two One Two Dance', 36, 7, 8, '3:36', 'assets/music/One Two One Two Dance.mp3', 1, 15),
+(33, 'Soneya Ve', 35, 7, 8, '2:36', 'assets/music/Soneya Ve.mp3', 2, 11),
+(34, 'One Two One Two Dance', 36, 7, 8, '3:36', 'assets/music/One Two One Two Dance.mp3', 1, 32),
 (35, 'Bande Hain Hum Uske', 38, 8, 1, '3:04', 'assets/music/Bande Hain Hum Uske.mp3', 1, 44),
 (37, 'Kamli', 39, 8, 1, '3:55', 'assets/music/Kamli.mp3', 2, 16),
 (38, ' Malang', 3, 8, 1, '4:33', 'assets/music/Malang.mp3', 3, 17),
@@ -404,16 +359,16 @@ INSERT INTO `songs` (`id`, `title`, `artist`, `album`, `genre`, `duration`, `pat
 (80, 'Ae Dil Bata', 65, 16, 4, '5:02', 'assets/music/Ae Dil Bata.mp3', 2, 11),
 (81, 'Chanda', 73, 16, 4, '3:55', 'assets/music/Chanda.mp3', 3, 9),
 (82, 'Mere Watan', 48, 16, 4, '3:55', 'assets/music/Mere Watan.mp3', 4, 8),
-(83, 'Taal Se Taal', 33, 17, 5, '6:18', 'assets/music/Taal Se Taal.mp3', 1, 21),
-(84, 'Ramta Jogi', 5, 17, 5, '6:17', 'assets/music/Ramta Jogi.mp3', 3, 21),
-(85, 'Raga Dance', 75, 17, 5, '2:53', 'assets/music/Raga Dance.mp3', 4, 5),
-(86, 'Ni Main Samajh Gayi', 53, 17, 5, '4:33', 'assets/music/Ni Main Samajh Gayi.mp3', 5, 2),
-(87, 'Taal Se Taal Western', 53, 17, 5, '2:34', 'assets/music/Taal Se Taal Western.mp3', 2, 25),
-(88, 'Apun Jaise Tapori', 77, 18, 8, '5:31', 'assets/music/Apun Jaise Tapori.mp3', 1, 16),
-(89, 'Chann Chann', 78, 18, 12, '6:59', 'assets/music/Chann Chann.mp3', 2, 22),
-(90, 'Dekh Le', 79, 18, 12, '3:23', 'assets/music/Dekh Le.mp3', 3, 14),
-(91, 'M Bole To', 78, 18, 8, '8:19', 'assets/music/M Bole To.mp3', 4, 7),
-(92, 'Subha Ho Gayi Mamu', 73, 18, 5, '4:01', 'assets/music/Subha Ho Gayi Mamu.mp3', 5, 22),
+(83, 'Taal Se Taal', 33, 17, 5, '6:18', 'assets/music/Taal Se Taal.mp3', 1, 23),
+(84, 'Ramta Jogi', 5, 17, 5, '6:17', 'assets/music/Ramta Jogi.mp3', 3, 22),
+(85, 'Raga Dance', 75, 17, 5, '2:53', 'assets/music/Raga Dance.mp3', 4, 6),
+(86, 'Ni Main Samajh Gayi', 53, 17, 5, '4:33', 'assets/music/Ni Main Samajh Gayi.mp3', 5, 3),
+(87, 'Taal Se Taal Western', 53, 17, 5, '2:34', 'assets/music/Taal Se Taal Western.mp3', 2, 26),
+(88, 'Apun Jaise Tapori', 77, 18, 8, '5:31', 'assets/music/Apun Jaise Tapori.mp3', 1, 22),
+(89, 'Chann Chann', 78, 18, 12, '6:59', 'assets/music/Chann Chann.mp3', 2, 27),
+(90, 'Dekh Le', 79, 18, 12, '3:23', 'assets/music/Dekh Le.mp3', 3, 19),
+(91, 'M Bole To', 78, 18, 8, '8:19', 'assets/music/M Bole To.mp3', 4, 12),
+(92, 'Subha Ho Gayi Mamu', 73, 18, 5, '4:01', 'assets/music/Subha Ho Gayi Mamu.mp3', 5, 27),
 (93, 'Tera Baap Aaya', 81, 19, 1, '2:45', 'assets/music/Tera Baap Aaya.mp3', 1, 47),
 (94, 'Akhiyaan Milavanga', 48, 19, 1, '5:02', 'assets/music/Akhiyaan Milavanga.mp3', 2, 28),
 (95, 'Iraade Kar Buland', 53, 19, 1, '3:48', 'assets/music/Iraade Kar Buland.mp3', 3, 31),
@@ -451,21 +406,8 @@ INSERT INTO `songs` (`id`, `title`, `artist`, `album`, `genre`, `duration`, `pat
 (128, 'Har Har Gange', 96, 25, 1, '3:13', 'assets/music/Har Har Gange.mp3', 2, 5),
 (129, 'Party To Banti Hai', 52, 25, 1, '4:19', 'assets/music/Party To Banti Hai.mp3', 3, 4),
 (130, 'Party With The Bhoothnath', 97, 25, 1, '5:21', 'assets/music/Party With The Bhoothnath.mp3', 4, 11),
-(131, 'Sahib', 98, 25, 1, '4:21', 'assets/music/Sahib.mp3', 5, 6),
+(131, 'Sahib', 98, 25, 1, '4:21', 'assets/music/Sahib.mp3', 5, 7),
 (132, 'Firse Machayenge', 99, 26, 13, '3:27', 'assets/music/Firse Machayenge.mp3', 1, 38);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `ID` int(255) NOT NULL,
-  `Username` text NOT NULL,
-  `Password` text NOT NULL,
-  `Email` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -483,21 +425,7 @@ CREATE TABLE `users` (
   `signup_date` datetime NOT NULL,
   `profile_pic` varchar(500) NOT NULL,
   `admin` enum('1','0') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `signup_date`, `profile_pic`, `admin`) VALUES
-(1, 'siddharthyadav', 'Siddharth', 'Yadav', 'siddharthdis3432@gmail.com', 'f72e9a1ac26eb390ef16669c43bac7f3', '2021-11-02 00:00:00', 'assets/images/profile-pics/user.png', '1'),
-(2, 'gautamdis3433', 'Gautam', 'Yadav', 'Dewamati2018@gmail.com', '246d49500885f797cb7e28e8ae692ca3', '2021-11-03 00:00:00', 'assets/images/profile-pics/user.png', '1'),
-(3, 'Praveen', 'Praveen', 'Yadav', 'Praveen6206698995yadav@gmail.com', '884119a93539de6daa466116e801fdf5', '2021-11-03 00:00:00', 'assets/images/profile-pics/user.png', '0'),
-(4, 'ganesh', 'Ganesh', 'Yadav', 'Glgop108@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-11-04 00:00:00', 'assets/images/profile-pics/user.png', '0'),
-(7, 'Mukesh', 'Mukesh', 'Yadav', 'Mukeshkryadav115@gmail.com', '22492aa28321f17a5701e29298b437a5', '2022-03-05 00:00:00', 'assets/images/profile-pics/user.png', '0'),
-(8, 'Krishnayadav', 'Krishna', 'Yadav', 'Krishnayadav42007@gmail.com', '6e599032120cdae705b7635b87917bd8', '2022-03-26 00:00:00', 'assets/images/profile-pics/user.png', '0'),
-(9, 'Omicron', 'Omicron', 'Omicron', 'Omicron@yopmail.com', 'd035ecc1895d6d770b8ba7476410f651', '2022-08-11 00:00:00', 'assets/images/profile-pics/user.png', '0'),
-(10, 'ShashiBhushan', 'Shashi', 'Yadav', 'Shashiyadav7462823203@gmail.com', 'd6de8aa75ef6ff6e5e7f9430e11cdae2', '2023-02-10 00:00:00', 'assets/images/profile-pics/user.png', '0');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Indexes for dumped tables
@@ -546,12 +474,6 @@ ALTER TABLE `songs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD UNIQUE KEY `UNIQUE` (`ID`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -589,13 +511,13 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `playlists`
 --
 ALTER TABLE `playlists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `playlistsongs`
 --
 ALTER TABLE `playlistsongs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `songs`
@@ -604,16 +526,10 @@ ALTER TABLE `songs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

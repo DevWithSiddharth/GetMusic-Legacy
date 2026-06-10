@@ -42,7 +42,7 @@ Welcome to **GetMusic**, a sleek, dark-themed music streaming website that lets 
   ### 3. Import the Database
 
   1. Open [phpMyAdmin](http://localhost/phpmyadmin) in your browser.
-  2. Create a new database (e.g., name it `getmusic`).
+  2. Create a new database (e.g., name it `GetMusic-Legacy`).
   3. Import the provided SQL file into the new database:
     - Select the newly created database from the left sidebar.
     - Click on the **Import** tab at the top.
@@ -63,7 +63,7 @@ Welcome to **GetMusic**, a sleek, dark-themed music streaming website that lets 
 $servername = "localhost";
 $username = "root";
 $password = ""; // use your password if set
-$dbname = "getmusic"; // Use the same name as the database you created
+$dbname = "GetMusic-Legacy"; // Use the same name as the database you created
 ```
 Save the file after editing.
 
@@ -82,6 +82,49 @@ http://localhost/GetMusic-Legacy
 The website should now be live on your local server
 
 
+## 👤 How to Use
+
+### User Registration & Login
+
+1. Open the website in your browser:
+   ```
+   http://localhost/GetMusic-Legacy
+   ```
+2. Click **Register** to create a new account.
+3. Fill in the required information and submit the registration form.
+4. Log in using your registered credentials.
+5. Start exploring music, creating playlists, and enjoying the platform.
+
+### 🔑 Admin Panel Access
+
+To access the admin dashboard, navigate to:
+
+```
+http://localhost/GetMusic-Legacy/admin
+```
+
+Use the following administrator credentials:
+
+| Field | Value |
+|--------|--------|
+| Username | Admin |
+| Password | admin |
+
+### 🛠️ Admin Features
+
+The Admin Dashboard provides a centralized interface for managing the entire platform. Administrators can:
+
+- 📊 **View Dashboard Statistics** – Monitor platform activity, content metrics, and overall system performance.
+- 👥 **Manage Users** – View user profiles, account details, and user information.
+- 🎵 **Manage Songs** – Add, edit, update, and delete songs from the music library.
+- 🎤 **Manage Artists** – Create, update, and remove artist records.
+- 🎼 **Manage Genres** – Add, modify, and organize music genres.
+- 💿 **Manage Albums** – Create, edit, and delete albums and their associated details.
+- 📦 **Manage Orders** – View and manage order records through the admin panel.
+- 🔄 **Perform Full CRUD Operations** – Create, Read, Update, and Delete data across all major platform resources.
+- ⚙️ **Centralized Content Management** – Maintain and organize all music-related content from a single dashboard.
+
+The admin panel is designed to provide complete control over users, songs, artists, genres, albums, orders, and overall platform management.
 
 ## License
 
